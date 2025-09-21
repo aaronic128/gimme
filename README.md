@@ -6,8 +6,6 @@ Give me (gimme) the gimme (sth that is easy to do).
 
 [WindTerm](https://github.com/kingToolbox/WindTerm)
 
-
-
 Give me (gimme) the gimme
 
 ## HA
@@ -17,11 +15,11 @@ Give me (gimme) the gimme
 
 ## LB
 
-HAProxy
+`HAProxy`
 
 ## Reverse Proxy
 
-Nginx
+`Nginx`
 
 ## Application Proxy
 
