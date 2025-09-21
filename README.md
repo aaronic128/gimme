@@ -1,4 +1,13 @@
-# gimme
+# Gimme
+
+Give me (gimme) the gimme (sth that is easy to do).
+
+## Terminal
+
+[WindTerm](https://github.com/kingToolbox/WindTerm)
+
+
+
 Give me (gimme) the gimme
 
 ## HA
