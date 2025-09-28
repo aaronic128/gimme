@@ -1,6 +1,14 @@
-# Gimme
+# Gimme | for DevOps
 
 Give me (gimme) the gimme (sth that is easy to do).
+
+## Roadmap
+
+[roadmap.sh](https://roadmap.sh/devops) 
+
+
+
+
 
 ## Terminal
 
