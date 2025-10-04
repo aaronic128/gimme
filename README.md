@@ -37,3 +37,19 @@ Give me (gimme) the gimme
 
 
 
+## Temp
+
+grape + cyft
+
+Trivy
+
+Brave
+
+Packer
+
+Weave Scope
+
+OCI
+
+
+
