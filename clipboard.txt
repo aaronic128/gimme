@@ -1,1 +1,2 @@
 CREATE DATABASE artifactory;
+CREATE USER artifactory_user WITH ENCRYPTED PASSWORD '123';
