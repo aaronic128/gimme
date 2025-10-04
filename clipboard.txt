@@ -1,3 +1,12 @@
-CREATE DATABASE artifactory;
-CREATE USER artifactory_user WITH ENCRYPTED PASSWORD '123';
-GRANT ALL PRIVILEGES ON DATABASE artifactory TO artifactory_user;
+# Start Router first
+sudo systemctl start artifactory-router
+
+# Then start Access (handles security and tokens)
+sudo systemctl start artifactory-access
+
+# Then the main Artifactory service
+sudo systemctl start artifactory
+
+# (Optional) Start other services like Metadata, Frontend, etc.
+sudo systemctl start artifactory-metadata
+sudo systemctl start artifactory-frontend
