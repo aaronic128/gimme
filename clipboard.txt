@@ -1,105 +1,52 @@
-[rocky@lib ~]$ sudo systemctl status artifactory.service 
+[rocky@lib ~]$ sudo tail -n 50 /opt/jfrog/artifactory/var/log/access-service.log 
 [sudo] password for rocky: 
-● artifactory.service - Artifactory service
-     Loaded: loaded (/usr/lib/systemd/system/artifactory.service; enabled; preset: disabled)
-     Active: active (running) since Sun 2025-10-05 09:05:04 +0330; 5min ago
-    Process: 28748 ExecStart=/opt/jfrog/artifactory/app/bin/artifactoryManage.sh start (code=exited, status=0/SUCCESS)
-   Main PID: 36897 (java)
-      Tasks: 0 (limit: 100077)
-     Memory: 40.0K
-        CPU: 13.213s
-     CGroup: /system.slice/artifactory.service
-             ‣ 36897 /opt/jfrog/artifactory/app/third-party/java/bin/java -Djava.util.logging.config.file=/opt/jfrog/artifactory/app/artifactory/tomcat/conf/logging.properties -Djava.util.lo>
-
-Oct 05 09:05:01 lib.itgroup.org artifactoryManage.sh[28748]: /usr/bin/netstat
-Oct 05 09:05:02 lib.itgroup.org artifactoryManage.sh[28748]: /usr/bin/netstat
-Oct 05 09:05:03 lib.itgroup.org artifactoryManage.sh[28748]: /usr/bin/netstat
-Oct 05 09:05:04 lib.itgroup.org artifactoryManage.sh[28748]: /usr/bin/netstat
-Oct 05 09:05:04 lib.itgroup.org artifactoryManage.sh[28748]: 2025-10-05T05:35:04.161Z [shell] [INFO ] [] [artifactoryManage.sh:151      ] [main] - Artifactory Tomcat started in normal mode
-Oct 05 09:05:04 lib.itgroup.org artifactoryManage.sh[28748]: 2025-10-05T05:35:04.202Z [shell] [INFO ] [] [artifactoryCommon.sh:1327     ] [main] - Artifactory running with PID 36897
-Oct 05 09:05:04 lib.itgroup.org su[37293]: (to artifactory) root on none
-Oct 05 09:05:04 lib.itgroup.org su[37293]: pam_unix(su:session): session opened for user artifactory(uid=985) by (uid=0)
-Oct 05 09:05:04 lib.itgroup.org su[37293]: pam_unix(su:session): session closed for user artifactory
-Oct 05 09:05:04 lib.itgroup.org systemd[1]: Started Artifactory service.
-
-
-^Cocky@lib ~]$ ^C
-[rocky@lib ~]$ ^C
-[rocky@lib ~]$ ^C
-[rocky@lib ~]$ sudo tail -f /opt/jfrog/artifactory/var/log/console.log 
-2025-10-05T05:42:40.365Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 890 Elapsed 7.44 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
-2025-10-05T05:42:45.385Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 900 Elapsed 7.52 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
-2025-10-05T05:42:50.403Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 910 Elapsed 7.61 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
-2025-10-05T05:42:55.421Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 920 Elapsed 7.69 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
-2025-10-05T05:43:00.440Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 930 Elapsed 7.77 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
-2025-10-05T05:43:05.458Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 940 Elapsed 7.86 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
-2025-10-05T05:43:10.476Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 950 Elapsed 7.94 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
-2025-10-05T05:43:15.495Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 960 Elapsed 8.03 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
-2025-10-05T05:43:20.513Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 970 Elapsed 8.11 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
-2025-10-05T05:43:25.531Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 980 Elapsed 8.19 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
-2025-10-05T05:43:30.548Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 990 Elapsed 8.28 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
-2025-10-05T05:43:35.906Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 1000 Elapsed 8.37 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
-2025-10-05T05:43:40.924Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 1010 Elapsed 8.45 minutes failed: Registration with router on URL http://l
-
-
-
-
-===
-
-
-
-
-
-[rocky@lib ~]$ sudo tail -n 50 /opt/jfrog/artifactory/var/log/router-service.log 
-[sudo] password for rocky: 
-shared.newrelic.enableDebugLog (Default Value): false
-shared.newrelic.enabled (Default Value): false
-shared.newrelic.licenseKey (Default Value): *****
-shared.node (File): <nil>
-shared.node.availabilityZoneId (Default Value): 
-shared.node.id (Environment Variable: JF_SHARED_NODE_ID): lib.itgroup.org
-shared.node.ip (Environment Variable: JF_SHARED_NODE_IP): 76.223.54.146
-shared.node.name (Environment Variable: JF_SHARED_NODE_NAME): lib
-shared.node.port (Default Value): 0
-shared.node.tlsEnabled (Default Value): false
-shared.security (File): <nil>
-shared.security.bootstrapKeysReadTimeoutSecs (Default Value): 300
-shared.security.joinKeyFile (Default Value): etc/security/join.key
-shared.security.masterKeyExternal (Default Value): false
-shared.security.masterKeyFile (Default Value): etc/security/master.key
-system.yaml (Environment Variable: JF_SYSTEM_YAML): /opt/jfrog/artifactory/var/etc/system.yaml
-topology.grpcPort (Default Value): 8021
-topology.port (Default Value): 8020
-2025-10-05T05:34:50.245Z [jfrou] [INFO ] [2e0b4463479fa21a] [bootstrap.go:144              ] [main                ] [] - System configuration encryption report:
-shared.database.password: ignored, not a string value
-shared.multiTenant.tenantRegistryClient.clientCertKey: does not exist in the config file
-shared.newrelic.licenseKey: does not exist in the config file
-shared.security.joinKeyFile: file '/opt/jfrog/artifactory/var/etc/security/join.key' - already encrypted
-2025-10-05T05:34:50.249Z [jfrou] [INFO ] [2e0b4463479fa21a] [environment.go:63             ] [main                ] [] - MemoryLimit set to 0 (ratio: 0.90)
-2025-10-05T05:34:50.249Z [jfrou] [INFO ] [2e0b4463479fa21a] [bootstrap.go:99               ] [main                ] [] - JFrog Router Service ID: jfrou@01k6djyd21bt9b1rvj6temepvr
-2025-10-05T05:34:50.249Z [jfrou] [INFO ] [2e0b4463479fa21a] [bootstrap.go:100              ] [main                ] [] - JFrog Router Node ID: lib.itgroup.org
-2025-10-05T05:34:50.272Z [jfrou] [INFO ] [2e0b4463479fa21a] [trusted.go:36                 ] [main                ] [] - System cert pool contents were loaded as trusted CAs for TLS communication
-2025-10-05T05:34:50.272Z [jfrou] [INFO ] [2e0b4463479fa21a] [trusted.go:58                 ] [main                ] [] - No certificate to be loaded as trusted CAs found in []
-2025-10-05T05:34:50.272Z [jfrou] [INFO ] [2e0b4463479fa21a] [trusted.go:36                 ] [main                ] [] - System cert pool contents were loaded as trusted CAs for TLS communication
-2025-10-05T05:34:50.272Z [jfrou] [INFO ] [2e0b4463479fa21a] [trusted.go:58                 ] [main                ] [] - No certificate to be loaded as trusted CAs found in []
-2025-10-05T05:34:52.242Z [jfrou] [INFO ] [2e0b4463479fa21a] [config_holder.go:130          ] [main                ] [] - Configuration update detected
-2025-10-05T05:35:17.640Z [jfrou] [INFO ] [2e0b4463479fa21a] [join_executor.go:117          ] [main                ] [] - Cluster join: Trying to rejoin the cluster http://localhost:8040/access
-2025-10-05T05:35:32.641Z [jfrou] [FATAL] [2e0b4463479fa21a] [e_tenant_services_holder.go:41] [main                ] [] - Failed joining Access: cluster join: Failed joining the cluster; Error: error while trying to connect to service registry at address 'http://localhost:8040/access': do secure: Post "http://localhost:8040/access/api/v1/registry/join/router": context deadline exceeded
-could not join Access
-jfrog.com/jfrog-router/v7/internal/app/application/services.joinAccess
-        jfrog.com/jfrog-router/v7/internal/app/application/services/join_access.go:36
-jfrog.com/jfrog-router/v7/internal/app/application/services.NewSingleTenantServicesHolder
-        jfrog.com/jfrog-router/v7/internal/app/application/services/single_tenant_services_holder.go:39
-jfrog.com/jfrog-router/v7/internal/app/application.createServicesHolder
-        jfrog.com/jfrog-router/v7/internal/app/application/bootstrap.go:74
-jfrog.com/jfrog-router/v7/internal/app/application.Bootstrap
-        jfrog.com/jfrog-router/v7/internal/app/application/bootstrap.go:52
-main.runApplication
-        jfrog.com/jfrog-router/v7/cmd/jf-router/main.go:52
-main.main
-        jfrog.com/jfrog-router/v7/cmd/jf-router/main.go:38
-runtime.main
-        runtime/proc.go:272
-runtime.goexit
-        runtime/asm_amd64.s:1700
-[rocky@lib ~]$ 
+2025-10-05T06:00:16.619Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 2990 Elapsed 25.04 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
+2025-10-05T06:00:21.634Z [jfac ] [ERROR] [94dc2ca34994da12] [o.j.c.ExecutionUtils:305      ] [jf-common-pool-1    ] - Last retry failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Not trying again (exceeded number of attempts (3000))
+2025-10-05T06:00:21.635Z [jfac ] [ERROR] [94dc2ca34994da12] [a.s.b.AccessServerRegistrar:82] [jf-common-pool-1    ] - Could not register access
+java.util.concurrent.CompletionException: org.jfrog.common.ExecutionFailed: Last retry failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Not trying again (exceeded number of attempts (3000))
+        at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332)
+        at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:347)
+        at java.base/java.util.concurrent.CompletableFuture$UniRun.tryFire(CompletableFuture.java:781)
+        at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+        at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194)
+        at org.jfrog.common.ExecutionUtils.handleStopError(ExecutionUtils.java:307)
+        at org.jfrog.common.ExecutionUtils.handleFunctionExecution(ExecutionUtils.java:197)
+        at org.jfrog.common.ExecutionUtils.lambda$generateExecutionRunnable$1(ExecutionUtils.java:135)
+        at org.jfrog.common.ExecutionUtils$MDCRunnableDecorator.run(ExecutionUtils.java:323)
+        at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+        at com.google.common.util.concurrent.TrustedListenableFutureTask$TrustedFutureInterruptibleTask.runInterruptibly(TrustedListenableFutureTask.java:131)
+        at com.google.common.util.concurrent.InterruptibleTask.run(InterruptibleTask.java:76)
+        at com.google.common.util.concurrent.TrustedListenableFutureTask.run(TrustedListenableFutureTask.java:82)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+        at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.jfrog.common.ExecutionFailed: Last retry failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Not trying again (exceeded number of attempts (3000))
+        ... 11 common frames omitted
+Caused by: org.jfrog.common.RetryException: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception
+        at org.jfrog.access.server.bootstrap.AccessWithRouterRegistrar.lambda$createRegistrationTask$0(AccessWithRouterRegistrar.java:116)
+        at org.jfrog.common.ExecutionUtils.handleFunctionExecution(ExecutionUtils.java:190)
+        ... 9 common frames omitted
+Caused by: io.grpc.StatusRuntimeException: UNAVAILABLE: io exception
+        at io.grpc.stub.ClientCalls.toStatusRuntimeException(ClientCalls.java:268)
+        at io.grpc.stub.ClientCalls.getUnchecked(ClientCalls.java:249)
+        at io.grpc.stub.ClientCalls.blockingUnaryCall(ClientCalls.java:167)
+        at com.jfrog.router.v1.registry.ServiceResourceGrpc$ServiceResourceBlockingStub.registerService(ServiceResourceGrpc.java:269)
+        at org.jfrog.access.accessrouterclient.RouterClientImpl.registerService(RouterClientImpl.java:49)
+        at org.jfrog.access.server.RouterGrpcServiceImpl.registerService(RouterGrpcServiceImpl.java:46)
+        at org.jfrog.access.server.bootstrap.AccessWithRouterRegistrar.registerAccessWithRouter(AccessWithRouterRegistrar.java:123)
+        at org.jfrog.access.server.bootstrap.AccessWithRouterRegistrar.lambda$createRegistrationTask$0(AccessWithRouterRegistrar.java:110)
+        ... 10 common frames omitted
+Caused by: io.grpc.netty.shaded.io.netty.channel.AbstractChannel$AnnotatedConnectException: finishConnect(..) failed: Connection refused: localhost/[0:0:0:0:0:0:0:1]:8046
+Caused by: java.net.ConnectException: finishConnect(..) failed: Connection refused
+        at io.grpc.netty.shaded.io.netty.channel.unix.Errors.newConnectException0(Errors.java:166)
+        at io.grpc.netty.shaded.io.netty.channel.unix.Errors.handleConnectErrno(Errors.java:131)
+        at io.grpc.netty.shaded.io.netty.channel.unix.Socket.finishConnect(Socket.java:359)
+        at io.grpc.netty.shaded.io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.doFinishConnect(AbstractEpollChannel.java:715)
+        at io.grpc.netty.shaded.io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.finishConnect(AbstractEpollChannel.java:692)
+        at io.grpc.netty.shaded.io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollOutReady(AbstractEpollChannel.java:567)
+        at io.grpc.netty.shaded.io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:491)
+        at io.grpc.netty.shaded.io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:399)
+        at io.grpc.netty.shaded.io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:994)
+        at io.grpc.netty.shaded.io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+        at io.grpc.netty.shaded.io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+        at java.base/java.lang.Thread.run(Thread.java:1583)
