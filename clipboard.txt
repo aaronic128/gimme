@@ -1,11 +1,13 @@
-[root@lib ansible_jfrog-asli]# ll
-total 812
--rw-r--r-- 1 root root    333 Jul  7 15:25 ansible.cfg
--rw-r--r-- 1 root root 826962 Aug 29  2024 ArtifactoryAgent-1.0-790fix-SNAPSHOT-all.jar
-drwxr-xr-x 2 root root     19 Jul  7 15:25 inventory
-drwxr-xr-x 2 root root     25 Jul  7 15:25 log
-drwxr-xr-x 3 root root     21 Jul  7 15:25 playbook
-drwxr-xr-x 3 root root     27 Jul  7 15:25 roles
+[root@lib ansible_jfrog-asli]# sudo rm -rf /var/lib/pgsql/14/data/*
+[root@lib ansible_jfrog-asli]# 
+[root@lib ansible_jfrog-asli]# 
+[root@lib ansible_jfrog-asli]# 
+[root@lib ansible_jfrog-asli]# 
+[root@lib ansible_jfrog-asli]# 
+[root@lib ansible_jfrog-asli]# 
+[root@lib ansible_jfrog-asli]# 
+[root@lib ansible_jfrog-asli]# 
+[root@lib ansible_jfrog-asli]# 
 [root@lib ansible_jfrog-asli]# ansible-playbook playbook/install/main.yml 
 
 PLAY [install and config artifactory] ***********************************************************************************************************************************************************************************************************************
@@ -24,9 +26,41 @@ ok: [127.0.0.1] => (item=java-17-openjdk)
 ok: [127.0.0.1] => (item=java-17-openjdk-devel)
 
 TASK [install_jfrog : Initialize database cluster] **********************************************************************************************************************************************************************************************************
-fatal: [127.0.0.1]: FAILED! => {"changed": true, "cmd": "postgresql-14-setup initdb", "delta": "0:00:00.083573", "end": "2025-10-05 10:50:24.805847", "msg": "non-zero return code", "rc": 1, "start": "2025-10-05 10:50:24.722274", "stderr": "", "stderr_lines": [], "stdout": "Data directory is not empty!", "stdout_lines": ["Data directory is not empty!"]}
+changed: [127.0.0.1]
+
+TASK [install_jfrog : start and enable postgresql] **********************************************************************************************************************************************************************************************************
+changed: [127.0.0.1]
+
+TASK [install_jfrog : restart postgresql] *******************************************************************************************************************************************************************************************************************
+changed: [127.0.0.1]
+
+TASK [install_jfrog : Create a new database with name "artifactory"] ****************************************************************************************************************************************************************************************
+changed: [127.0.0.1]
+
+TASK [install_jfrog : Connect "artifactory_user" to "artifactory"] ******************************************************************************************************************************************************************************************
+changed: [127.0.0.1]
+
+TASK [install_jfrog : change owner "artifactory"] ***********************************************************************************************************************************************************************************************************
+changed: [127.0.0.1]
+
+TASK [install_jfrog : GRANT ALL PRIVILEGES] *****************************************************************************************************************************************************************************************************************
+changed: [127.0.0.1]
+
+TASK [install_jfrog : Allow access to artifactory for artifactory_user] *************************************************************************************************************************************************************************************
+changed: [127.0.0.1]
+
+TASK [install_jfrog : restart postgresql] *******************************************************************************************************************************************************************************************************************
+changed: [127.0.0.1]
+
+TASK [install_jfrog : Copy Artifactory RPM package to target] ***********************************************************************************************************************************************************************************************
+ok: [127.0.0.1]
+
+TASK [install_jfrog : Install Artifactory from local RPM] ***************************************************************************************************************************************************************************************************
+changed: [127.0.0.1]
+
+TASK [install_jfrog : Copy customized system.yaml template] *************************************************************************************************************************************************************************************************
+fatal: [127.0.0.1]: FAILED! => {"changed": false, "checksum": "459ab15f1b065913f546f63c689921b81669ce61", "msg": "Destination directory /opt/jfrog/artifactory/var/etc does not exist"}
 
 PLAY RECAP **************************************************************************************************************************************************************************************************************************************************
-127.0.0.1                  : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+127.0.0.1                  : ok=14   changed=11   unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
 
-[root@lib ansible_jfrog-asli]# 
