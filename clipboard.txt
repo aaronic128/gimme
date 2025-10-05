@@ -14,3 +14,6 @@ Oct 05 16:02:49 chat.itgroup.org postgresql-14-check-db-dir[36892]: See /usr/sha
 Oct 05 16:02:49 chat.itgroup.org systemd[1]: postgresql-14.service: Control process exited, code=exited, status=1/FAILURE
 Oct 05 16:02:49 chat.itgroup.org systemd[1]: postgresql-14.service: Failed with result 'exit-code'.
 Oct 05 16:02:49 chat.itgroup.org systemd[1]: Failed to start PostgreSQL 14 database server.
+
+
+https://docs.mattermost.com/deployment-guide/server/preparations.html#database-preparation
