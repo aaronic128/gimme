@@ -40,3 +40,66 @@ Oct 05 09:05:04 lib.itgroup.org systemd[1]: Started Artifactory service.
 2025-10-05T05:43:30.548Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 990 Elapsed 8.28 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
 2025-10-05T05:43:35.906Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 1000 Elapsed 8.37 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
 2025-10-05T05:43:40.924Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 1010 Elapsed 8.45 minutes failed: Registration with router on URL http://l
+
+
+
+
+===
+
+
+
+
+
+[rocky@lib ~]$ sudo tail -n 50 /opt/jfrog/artifactory/var/log/router-service.log 
+[sudo] password for rocky: 
+shared.newrelic.enableDebugLog (Default Value): false
+shared.newrelic.enabled (Default Value): false
+shared.newrelic.licenseKey (Default Value): *****
+shared.node (File): <nil>
+shared.node.availabilityZoneId (Default Value): 
+shared.node.id (Environment Variable: JF_SHARED_NODE_ID): lib.itgroup.org
+shared.node.ip (Environment Variable: JF_SHARED_NODE_IP): 76.223.54.146
+shared.node.name (Environment Variable: JF_SHARED_NODE_NAME): lib
+shared.node.port (Default Value): 0
+shared.node.tlsEnabled (Default Value): false
+shared.security (File): <nil>
+shared.security.bootstrapKeysReadTimeoutSecs (Default Value): 300
+shared.security.joinKeyFile (Default Value): etc/security/join.key
+shared.security.masterKeyExternal (Default Value): false
+shared.security.masterKeyFile (Default Value): etc/security/master.key
+system.yaml (Environment Variable: JF_SYSTEM_YAML): /opt/jfrog/artifactory/var/etc/system.yaml
+topology.grpcPort (Default Value): 8021
+topology.port (Default Value): 8020
+2025-10-05T05:34:50.245Z [jfrou] [INFO ] [2e0b4463479fa21a] [bootstrap.go:144              ] [main                ] [] - System configuration encryption report:
+shared.database.password: ignored, not a string value
+shared.multiTenant.tenantRegistryClient.clientCertKey: does not exist in the config file
+shared.newrelic.licenseKey: does not exist in the config file
+shared.security.joinKeyFile: file '/opt/jfrog/artifactory/var/etc/security/join.key' - already encrypted
+2025-10-05T05:34:50.249Z [jfrou] [INFO ] [2e0b4463479fa21a] [environment.go:63             ] [main                ] [] - MemoryLimit set to 0 (ratio: 0.90)
+2025-10-05T05:34:50.249Z [jfrou] [INFO ] [2e0b4463479fa21a] [bootstrap.go:99               ] [main                ] [] - JFrog Router Service ID: jfrou@01k6djyd21bt9b1rvj6temepvr
+2025-10-05T05:34:50.249Z [jfrou] [INFO ] [2e0b4463479fa21a] [bootstrap.go:100              ] [main                ] [] - JFrog Router Node ID: lib.itgroup.org
+2025-10-05T05:34:50.272Z [jfrou] [INFO ] [2e0b4463479fa21a] [trusted.go:36                 ] [main                ] [] - System cert pool contents were loaded as trusted CAs for TLS communication
+2025-10-05T05:34:50.272Z [jfrou] [INFO ] [2e0b4463479fa21a] [trusted.go:58                 ] [main                ] [] - No certificate to be loaded as trusted CAs found in []
+2025-10-05T05:34:50.272Z [jfrou] [INFO ] [2e0b4463479fa21a] [trusted.go:36                 ] [main                ] [] - System cert pool contents were loaded as trusted CAs for TLS communication
+2025-10-05T05:34:50.272Z [jfrou] [INFO ] [2e0b4463479fa21a] [trusted.go:58                 ] [main                ] [] - No certificate to be loaded as trusted CAs found in []
+2025-10-05T05:34:52.242Z [jfrou] [INFO ] [2e0b4463479fa21a] [config_holder.go:130          ] [main                ] [] - Configuration update detected
+2025-10-05T05:35:17.640Z [jfrou] [INFO ] [2e0b4463479fa21a] [join_executor.go:117          ] [main                ] [] - Cluster join: Trying to rejoin the cluster http://localhost:8040/access
+2025-10-05T05:35:32.641Z [jfrou] [FATAL] [2e0b4463479fa21a] [e_tenant_services_holder.go:41] [main                ] [] - Failed joining Access: cluster join: Failed joining the cluster; Error: error while trying to connect to service registry at address 'http://localhost:8040/access': do secure: Post "http://localhost:8040/access/api/v1/registry/join/router": context deadline exceeded
+could not join Access
+jfrog.com/jfrog-router/v7/internal/app/application/services.joinAccess
+        jfrog.com/jfrog-router/v7/internal/app/application/services/join_access.go:36
+jfrog.com/jfrog-router/v7/internal/app/application/services.NewSingleTenantServicesHolder
+        jfrog.com/jfrog-router/v7/internal/app/application/services/single_tenant_services_holder.go:39
+jfrog.com/jfrog-router/v7/internal/app/application.createServicesHolder
+        jfrog.com/jfrog-router/v7/internal/app/application/bootstrap.go:74
+jfrog.com/jfrog-router/v7/internal/app/application.Bootstrap
+        jfrog.com/jfrog-router/v7/internal/app/application/bootstrap.go:52
+main.runApplication
+        jfrog.com/jfrog-router/v7/cmd/jf-router/main.go:52
+main.main
+        jfrog.com/jfrog-router/v7/cmd/jf-router/main.go:38
+runtime.main
+        runtime/proc.go:272
+runtime.goexit
+        runtime/asm_amd64.s:1700
+[rocky@lib ~]$ 
