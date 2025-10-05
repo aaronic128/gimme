@@ -34,3 +34,38 @@ wget https://releases.mattermost.com/10.12.0/mattermost-10.12.0-linux-amd64.tar.
 
 sudo /opt/jfrog/artifactory/app/third-party/apollo/router \
   --config /var/opt/jfrog/artifactory/bootstrap/router/router.yaml
+
+
+
+[rocky@lib router]$ sudo /opt/jfrog/artifactory/app/third-party/apollo/router \
+  --config /var/opt/jfrog/artifactory/bootstrap/router/router.yaml
+Apollo Router v1.58.1 // (c) Apollo Graph, Inc. // Licensed as ELv2 (https://go.apollo.dev/elv2)
+
+⚠️  The Apollo Router requires a composed supergraph schema at startup. ⚠️
+
+👉 DO ONE:
+
+  * Pass a local schema file with the '--supergraph' option:
+
+      $ ./router --supergraph <file_path>
+
+  * Fetch a registered schema from GraphOS by setting
+    these environment variables:
+
+      $ APOLLO_KEY="..." APOLLO_GRAPH_REF="..." ./router
+
+      For details, see the Apollo docs:
+      https://www.apollographql.com/docs/federation/managed-federation/setup
+
+🔬 TESTING THINGS OUT?
+
+  1. Download an example supergraph schema with Apollo-hosted subgraphs:
+
+    $ curl -L https://supergraph.demo.starstuff.dev/ > starstuff.graphql
+
+  2. Run the Apollo Router in development mode with the supergraph schema:
+
+    $ ./router --dev --supergraph starstuff.graphql
+
+    
+[rocky@lib router]$ 
