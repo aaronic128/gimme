@@ -1,12 +1,42 @@
-# Start Router first
-sudo systemctl start artifactory-router
+[rocky@lib ~]$ sudo systemctl status artifactory.service 
+[sudo] password for rocky: 
+● artifactory.service - Artifactory service
+     Loaded: loaded (/usr/lib/systemd/system/artifactory.service; enabled; preset: disabled)
+     Active: active (running) since Sun 2025-10-05 09:05:04 +0330; 5min ago
+    Process: 28748 ExecStart=/opt/jfrog/artifactory/app/bin/artifactoryManage.sh start (code=exited, status=0/SUCCESS)
+   Main PID: 36897 (java)
+      Tasks: 0 (limit: 100077)
+     Memory: 40.0K
+        CPU: 13.213s
+     CGroup: /system.slice/artifactory.service
+             ‣ 36897 /opt/jfrog/artifactory/app/third-party/java/bin/java -Djava.util.logging.config.file=/opt/jfrog/artifactory/app/artifactory/tomcat/conf/logging.properties -Djava.util.lo>
 
-# Then start Access (handles security and tokens)
-sudo systemctl start artifactory-access
+Oct 05 09:05:01 lib.itgroup.org artifactoryManage.sh[28748]: /usr/bin/netstat
+Oct 05 09:05:02 lib.itgroup.org artifactoryManage.sh[28748]: /usr/bin/netstat
+Oct 05 09:05:03 lib.itgroup.org artifactoryManage.sh[28748]: /usr/bin/netstat
+Oct 05 09:05:04 lib.itgroup.org artifactoryManage.sh[28748]: /usr/bin/netstat
+Oct 05 09:05:04 lib.itgroup.org artifactoryManage.sh[28748]: 2025-10-05T05:35:04.161Z [shell] [INFO ] [] [artifactoryManage.sh:151      ] [main] - Artifactory Tomcat started in normal mode
+Oct 05 09:05:04 lib.itgroup.org artifactoryManage.sh[28748]: 2025-10-05T05:35:04.202Z [shell] [INFO ] [] [artifactoryCommon.sh:1327     ] [main] - Artifactory running with PID 36897
+Oct 05 09:05:04 lib.itgroup.org su[37293]: (to artifactory) root on none
+Oct 05 09:05:04 lib.itgroup.org su[37293]: pam_unix(su:session): session opened for user artifactory(uid=985) by (uid=0)
+Oct 05 09:05:04 lib.itgroup.org su[37293]: pam_unix(su:session): session closed for user artifactory
+Oct 05 09:05:04 lib.itgroup.org systemd[1]: Started Artifactory service.
 
-# Then the main Artifactory service
-sudo systemctl start artifactory
 
-# (Optional) Start other services like Metadata, Frontend, etc.
-sudo systemctl start artifactory-metadata
-sudo systemctl start artifactory-frontend
+^Cocky@lib ~]$ ^C
+[rocky@lib ~]$ ^C
+[rocky@lib ~]$ ^C
+[rocky@lib ~]$ sudo tail -f /opt/jfrog/artifactory/var/log/console.log 
+2025-10-05T05:42:40.365Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 890 Elapsed 7.44 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
+2025-10-05T05:42:45.385Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 900 Elapsed 7.52 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
+2025-10-05T05:42:50.403Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 910 Elapsed 7.61 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
+2025-10-05T05:42:55.421Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 920 Elapsed 7.69 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
+2025-10-05T05:43:00.440Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 930 Elapsed 7.77 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
+2025-10-05T05:43:05.458Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 940 Elapsed 7.86 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
+2025-10-05T05:43:10.476Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 950 Elapsed 7.94 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
+2025-10-05T05:43:15.495Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 960 Elapsed 8.03 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
+2025-10-05T05:43:20.513Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 970 Elapsed 8.11 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
+2025-10-05T05:43:25.531Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 980 Elapsed 8.19 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
+2025-10-05T05:43:30.548Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 990 Elapsed 8.28 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
+2025-10-05T05:43:35.906Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 1000 Elapsed 8.37 minutes failed: Registration with router on URL http://localhost:8046 failed with error: UNAVAILABLE: io exception. Trying again
+2025-10-05T05:43:40.924Z [jfac ] [INFO ] [94dc2ca34994da12] [o.j.c.ExecutionUtils:289      ] [jf-common-pool-1    ] - Retry 1010 Elapsed 8.45 minutes failed: Registration with router on URL http://l
