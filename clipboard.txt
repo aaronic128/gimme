@@ -1,1 +1,16 @@
-sudo dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+[root@chat ~]# 
+[root@chat ~]# sudo systemctl status postgresql-14.service 
+× postgresql-14.service - PostgreSQL 14 database server
+     Loaded: loaded (/usr/lib/systemd/system/postgresql-14.service; enabled; preset: disabled)
+     Active: failed (Result: exit-code) since Sun 2025-10-05 16:02:49 +0330; 31min ago
+       Docs: https://www.postgresql.org/docs/14/static/
+    Process: 36892 ExecStartPre=/usr/pgsql-14/bin/postgresql-14-check-db-dir ${PGDATA} (code=exited, status=1/FAILURE)
+        CPU: 4ms
+
+Oct 05 16:02:49 chat.itgroup.org systemd[1]: Starting PostgreSQL 14 database server...
+Oct 05 16:02:49 chat.itgroup.org postgresql-14-check-db-dir[36892]: "/var/lib/pgsql/14/data/" is missing or empty.
+Oct 05 16:02:49 chat.itgroup.org postgresql-14-check-db-dir[36892]: Use "/usr/pgsql-14/bin/postgresql-14-setup initdb" to initialize the database cluster.
+Oct 05 16:02:49 chat.itgroup.org postgresql-14-check-db-dir[36892]: See /usr/share/doc/postgresql14/README.rpm-dist for more information.
+Oct 05 16:02:49 chat.itgroup.org systemd[1]: postgresql-14.service: Control process exited, code=exited, status=1/FAILURE
+Oct 05 16:02:49 chat.itgroup.org systemd[1]: postgresql-14.service: Failed with result 'exit-code'.
+Oct 05 16:02:49 chat.itgroup.org systemd[1]: Failed to start PostgreSQL 14 database server.
