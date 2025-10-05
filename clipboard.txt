@@ -19,3 +19,12 @@ Oct 05 16:02:49 chat.itgroup.org systemd[1]: Failed to start PostgreSQL 14 datab
 https://docs.mattermost.com/deployment-guide/server/preparations.html#database-preparation
 
 wget https://releases.mattermost.com/10.12.0/mattermost-10.12.0-linux-amd64.tar.gz
+
+
+
+{
+  "errors" : [ {
+    "status" : 500,
+    "message" : "Session filter is not initialized! Thread: 2025-10-05T17:24:17.547+03:30|9f84624978f1c206|/artifactory/|http-nio-8081-exec-9"
+  } ]
+}
