@@ -1,3 +1,1 @@
-[root@lib opt]# rpm -qa | grep jfrog
-jfrog-artifactory-pro-7.104.6-80406900.x86_64
-[root@lib opt]# 
+sudo dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm
