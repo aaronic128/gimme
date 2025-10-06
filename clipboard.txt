@@ -1,18 +1,13 @@
-[Unit]
-Description=Mattermost
-After=network.target
-
-[Service]
-Type=notify
-ExecStart=/opt/mattermost/bin/mattermost
-TimeoutStartSec=3600
-KillMode=mixed
-Restart=always
-RestartSec=10
-WorkingDirectory=/opt/mattermost
-User=mattermost
-Group=mattermost
-LimitNOFILE=49152
-
-[Install]
-WantedBy=multi-user.target
+":"warn","msg":"failed to get public IP address for local interface","caller":"app/plugin_api.go:1131","plugin_id":"com.mattermost.calls","origin":"main.(*>
+280 +03:30","level":"warn","msg":"failed to get public IP address for local interface","caller":"app/plugin_api.go:1131","plugin_id":"com.mattermost.calls","origin":"main.(*>
+281 +03:30","level":"info","msg":"rtc: server is listening on udp 127.0.0.1:8443","caller":"app/plugin_api.go:1123","plugin_id":"com.mattermost.calls","origin":"main.(*logge>
+281 +03:30","level":"info","msg":"rtc: server is listening on udp 192.168.1.173:8443","caller":"app/plugin_api.go:1123","plugin_id":"com.mattermost.calls","origin":"main.(*l>
+282 +03:30","level":"info","msg":"rtc: server is listening on udp 172.17.0.1:8443","caller":"app/plugin_api.go:1123","plugin_id":"com.mattermost.calls","origin":"main.(*logg>
+282 +03:30","level":"info","msg":"Listening TCP on 0.0.0.0:8443","caller":"app/plugin_api.go:1123","plugin_id":"com.mattermost.calls","origin":"main.(*logger).Info log.go:10>
+290 +03:30","level":"info","msg":"Should not persist transitionally prepackged plugin: not a newer version","caller":"app/plugin.go:1169","plugin_id":"playbooks","prepackage>
+296 +03:30","level":"info","msg":"Starting Server...","caller":"app/server.go:890"}
+296 +03:30","level":"error","msg":"Error starting server, err:listen tcp :443: bind: permission denied: listen tcp :443: bind: permission denied","caller":"commands/server.g>
+296 +03:30","level":"info","msg":"Stopping Server...","caller":"app/server.go:672"}
+~
+~
+~
