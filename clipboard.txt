@@ -1,71 +1,18 @@
-[root@chat ~]# 
-[root@chat ~]# sudo systemctl status postgresql-14.service 
-× postgresql-14.service - PostgreSQL 14 database server
-     Loaded: loaded (/usr/lib/systemd/system/postgresql-14.service; enabled; preset: disabled)
-     Active: failed (Result: exit-code) since Sun 2025-10-05 16:02:49 +0330; 31min ago
-       Docs: https://www.postgresql.org/docs/14/static/
-    Process: 36892 ExecStartPre=/usr/pgsql-14/bin/postgresql-14-check-db-dir ${PGDATA} (code=exited, status=1/FAILURE)
-        CPU: 4ms
+[Unit]
+Description=Mattermost
+After=network.target
 
-Oct 05 16:02:49 chat.itgroup.org systemd[1]: Starting PostgreSQL 14 database server...
-Oct 05 16:02:49 chat.itgroup.org postgresql-14-check-db-dir[36892]: "/var/lib/pgsql/14/data/" is missing or empty.
-Oct 05 16:02:49 chat.itgroup.org postgresql-14-check-db-dir[36892]: Use "/usr/pgsql-14/bin/postgresql-14-setup initdb" to initialize the database cluster.
-Oct 05 16:02:49 chat.itgroup.org postgresql-14-check-db-dir[36892]: See /usr/share/doc/postgresql14/README.rpm-dist for more information.
-Oct 05 16:02:49 chat.itgroup.org systemd[1]: postgresql-14.service: Control process exited, code=exited, status=1/FAILURE
-Oct 05 16:02:49 chat.itgroup.org systemd[1]: postgresql-14.service: Failed with result 'exit-code'.
-Oct 05 16:02:49 chat.itgroup.org systemd[1]: Failed to start PostgreSQL 14 database server.
+[Service]
+Type=notify
+ExecStart=/opt/mattermost/bin/mattermost
+TimeoutStartSec=3600
+KillMode=mixed
+Restart=always
+RestartSec=10
+WorkingDirectory=/opt/mattermost
+User=mattermost
+Group=mattermost
+LimitNOFILE=49152
 
-
-https://docs.mattermost.com/deployment-guide/server/preparations.html#database-preparation
-
-wget https://releases.mattermost.com/10.12.0/mattermost-10.12.0-linux-amd64.tar.gz
-
-
-
-{
-  "errors" : [ {
-    "status" : 500,
-    "message" : "Session filter is not initialized! Thread: 2025-10-05T17:24:17.547+03:30|9f84624978f1c206|/artifactory/|http-nio-8081-exec-9"
-  } ]
-}
-
-
-
-
-sudo /opt/jfrog/artifactory/app/third-party/apollo/router \
-  --config /var/opt/jfrog/artifactory/bootstrap/router/router.yaml
-
-
-
-[rocky@lib router]$ sudo /opt/jfrog/artifactory/app/third-party/apollo/router \
-  --config /var/opt/jfrog/artifactory/bootstrap/router/router.yaml
-Apollo Router v1.58.1 // (c) Apollo Graph, Inc. // Licensed as ELv2 (https://go.apollo.dev/elv2)
-
-⚠️  The Apollo Router requires a composed supergraph schema at startup. ⚠️
-
-👉 DO ONE:
-
-  * Pass a local schema file with the '--supergraph' option:
-
-      $ ./router --supergraph <file_path>
-
-  * Fetch a registered schema from GraphOS by setting
-    these environment variables:
-
-      $ APOLLO_KEY="..." APOLLO_GRAPH_REF="..." ./router
-
-      For details, see the Apollo docs:
-      https://www.apollographql.com/docs/federation/managed-federation/setup
-
-🔬 TESTING THINGS OUT?
-
-  1. Download an example supergraph schema with Apollo-hosted subgraphs:
-
-    $ curl -L https://supergraph.demo.starstuff.dev/ > starstuff.graphql
-
-  2. Run the Apollo Router in development mode with the supergraph schema:
-
-    $ ./router --dev --supergraph starstuff.graphql
-
-    
-[rocky@lib router]$ 
+[Install]
+WantedBy=multi-user.target
